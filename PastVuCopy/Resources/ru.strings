@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  PastVuCopy
+
+  Created by Павел Виноградов on 31.03.2023.
+  
+*/
+
+"explore" = "Исследуй";
+"study" = "Изучай";
+"takePictures" = "Фотографируй";
+"inMapOrListMode" = "С помощью карты или в режиме списка";
+"theHistoryOfYourCityOnPhotos" = "Историю своего города по фотографиям из разных эпох";
+"compareHowUrbanEnvironmentChanged" = "И сравнивай как изменилась городская среда";
