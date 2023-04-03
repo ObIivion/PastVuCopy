@@ -14,7 +14,4 @@ class OnboardingViewModel {
         OnboardingPageModel(page: .page2),
         OnboardingPageModel(page: .page3)
     ]
-    
-    
-    
 }

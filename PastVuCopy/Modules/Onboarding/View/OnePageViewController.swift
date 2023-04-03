@@ -7,14 +7,21 @@
 
 import UIKit
 
+protocol PageViewProtocol {
+    func setModel(model: OnboardingPageModel)
+}
+
 class OnePageViewController: BaseViewController<OnboardingPageView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+}
+
+extension OnePageViewController: PageViewProtocol {
     
     func setModel(model: OnboardingPageModel) {
         mainView.setData(model: model)
     }
-
+    
 }

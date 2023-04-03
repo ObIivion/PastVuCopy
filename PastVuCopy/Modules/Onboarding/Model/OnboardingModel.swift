@@ -49,7 +49,7 @@ struct OnboardingPageModel {
         case .page2:
             return UIImage(named: "Page2Image")
         case .page3:
-            return UIImage(named: "Page3Image")
+            return UIImage(named: "Saly-2")
         case .none:
             return nil
         }
@@ -58,11 +58,11 @@ struct OnboardingPageModel {
     var vectorImage: UIImage? {
         switch page {
         case .page1:
-            return UIImage(named: "Page1Vector")
+            return UIImage(named: "Vector 6")
         case .page2:
-            return UIImage(named: "Page2Vector")
+            return UIImage(named: "Vector 6-2")
         case .page3:
-            return UIImage(named: "Page3Vector")
+            return UIImage(named: "Vector 6-3")
         case .none:
             return nil
         }

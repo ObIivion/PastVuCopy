@@ -8,6 +8,10 @@
 import UIKit
 
 class ImageButton: UIButton {
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 76, height: 76)
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,13 +24,14 @@ class ImageButton: UIButton {
     }
     
     private func initSetup() {
-        //setImage(T##image: UIImage?##UIImage?, for: T##UIControl.State)
+        setImage(UIImage(named: "RightArrow"), for: .normal)
+        setupShadow()
     }
     
     private func setupShadow() {
         layer.shadowColor = UIColor(red: 1, green: 0.587, blue: 0.288, alpha: 0.6).cgColor
         layer.shadowOpacity = 1
-        layer.shadowRadius = 14
+        layer.shadowRadius = bounds.width/2
         layer.shadowOffset = CGSize(width: 0, height: 5)
     }
     

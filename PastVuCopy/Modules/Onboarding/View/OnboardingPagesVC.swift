@@ -9,22 +9,42 @@ import UIKit
 
 class OnboardingPagesVC: UIPageViewController {
     
+    var pages: [UIViewController] = []
+    
     private let viewModel = OnboardingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         
-        setup()
+        dataSource = self
+        delegate = self
+        
+        setupPages()
     }
+
     
-    func setup() {
-        let pages: [OnePageViewController] = Array(repeating: OnePageViewController(), count: viewModel.pageModels.count)
-        let modeledPages: [OnePageViewController] = zip(pages, viewModel.pageModels).map {
+    func setupPages() {
+        
+        var localPages: [OnePageViewController] = []
+        
+        for _ in 0..<viewModel.pageModels.count {
+            let page = OnePageViewController()
+            localPages.append(page)
+        
+        }
+        
+        let modeledPages: [OnePageViewController] = zip(localPages, viewModel.pageModels).map {
             $0.setModel(model: $1)
             return $0
         }
         
-        setViewControllers(modeledPages, direction: .forward, animated: true)
+        self.pages = modeledPages
+        
+        if let firstVC = pages.first {
+            setViewControllers([firstVC], direction: .forward, animated: true)
+        }
+        
     }
 }
 
@@ -32,21 +52,41 @@ extension OnboardingPagesVC: UIPageViewControllerDelegate, UIPageViewControllerD
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        guard let viewControllers = viewControllers else { return nil }
-        guard let index = viewControllers.firstIndex(of: viewController) else { return nil }
+        guard let index = pages.firstIndex(of: viewController) else {
+            return nil
+        }
+        
         let previousIndex = index - 1
         
-        return previousIndex < 0 ? nil : viewControllers[previousIndex]
+        guard previousIndex >= 0 else {
+            return nil
+        }
+        
+        guard pages.count > previousIndex else {
+            return nil
+        }
+        
+        return pages[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) ->
     UIViewController? {
         
-        guard let viewControllers = viewControllers else { return nil }
-        guard let index = viewControllers.firstIndex(of: viewController) else { return nil }
+        guard let index = pages.firstIndex(of: viewController) else {
+            return nil
+        }
+        
         let nextIndex = index + 1
         
-        return nextIndex > viewControllers.count ? nil : viewControllers[nextIndex]
+        guard pages.count != nextIndex else {
+            return nil
+        }
+        
+        guard pages.count > nextIndex else {
+            return nil
+        }
+        
+        return pages[nextIndex]
     }
 }
 
