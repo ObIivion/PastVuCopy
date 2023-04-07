@@ -10,7 +10,7 @@ import UIKit
 
 struct OnboardingPageModel {
     
-    enum Page {
+    enum Page: CaseIterable {
         case page1, page2, page3
     }
     

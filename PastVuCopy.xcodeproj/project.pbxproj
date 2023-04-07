@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A38A4D0729DAEB540026F627 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A4D0629DAEB540026F627 /* R.generated.swift */; };
+		A3C3645A29DF1CF500731F4D /* PageControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C3645929DF1CF500731F4D /* PageControllerView.swift */; };
 		A3CE61EF29D6F4330020C95A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE61EE29D6F4330020C95A /* Constants.swift */; };
 		A3CE61F129D6F4DF0020C95A /* ru.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3CE61F029D6F4DF0020C95A /* ru.strings */; };
 		A3CE61F329D7044A0020C95A /* OnePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE61F229D7044A0020C95A /* OnePageViewController.swift */; };
@@ -25,12 +25,15 @@
 		A3D7B3B829D6301E00F0D3DB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7B3B729D6301E00F0D3DB /* BaseViewController.swift */; };
 		A3D7B3BB29D6333C00F0D3DB /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7B3BA29D6333C00F0D3DB /* UserDefaultsService.swift */; };
 		A3D7B3BF29D63FBD00F0D3DB /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7B3BE29D63FBD00F0D3DB /* OnboardingModel.swift */; };
+		A3F7700129E05E9600CE31AD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7700029E05E9600CE31AD /* R.generated.swift */; };
+		A3F7700329E0809600CE31AD /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7700229E0809600CE31AD /* OnboardingScreen.swift */; };
+		A3F7700529E08E0300CE31AD /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F7700429E08E0300CE31AD /* OnboardingRouter.swift */; };
 		CC2D45EC480B853C50AAE671 /* Pods_PastVuCopy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B52C0D707DB862BE50F803 /* Pods_PastVuCopy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		533971C3B4DDA858F0CD3BD8 /* Pods-PastVuCopy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PastVuCopy.release.xcconfig"; path = "Target Support Files/Pods-PastVuCopy/Pods-PastVuCopy.release.xcconfig"; sourceTree = "<group>"; };
-		A38A4D0629DAEB540026F627 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		A3C3645929DF1CF500731F4D /* PageControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControllerView.swift; sourceTree = "<group>"; };
 		A3CE61EE29D6F4330020C95A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A3CE61F029D6F4DF0020C95A /* ru.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ru.strings; sourceTree = "<group>"; };
 		A3CE61F229D7044A0020C95A /* OnePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePageViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +53,9 @@
 		A3D7B3B729D6301E00F0D3DB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A3D7B3BA29D6333C00F0D3DB /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		A3D7B3BE29D63FBD00F0D3DB /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		A3F7700029E05E9600CE31AD /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		A3F7700229E0809600CE31AD /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		A3F7700429E08E0300CE31AD /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		B8B52C0D707DB862BE50F803 /* Pods_PastVuCopy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PastVuCopy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3002D206B7A301645EE7B70 /* Pods-PastVuCopy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PastVuCopy.debug.xcconfig"; path = "Target Support Files/Pods-PastVuCopy/Pods-PastVuCopy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +84,7 @@
 		A3CE61ED29D6F3E20020C95A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A38A4D0629DAEB540026F627 /* R.generated.swift */,
+				A3F7700029E05E9600CE31AD /* R.generated.swift */,
 				A3CE61F629D705500020C95A /* Styles.swift */,
 				A3CE61EE29D6F4330020C95A /* Constants.swift */,
 				A3D7B3A029D62CA100F0D3DB /* Assets.xcassets */,
@@ -146,10 +152,11 @@
 		A3D7B3AF29D62E2000F0D3DB /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				A3D7B3BC29D633A900F0D3DB /* ModuleBuilder */,
+				A3D7B3BC29D633A900F0D3DB /* OnboardingFactory */,
 				A3D7B3BD29D63F8000F0D3DB /* Model */,
 				A3D7B3B129D62E4200F0D3DB /* ViewModel */,
 				A3D7B3B029D62E3300F0D3DB /* View */,
+				A3F7700429E08E0300CE31AD /* OnboardingRouter.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				A3D7B39B29D62CA000F0D3DB /* OnboardingPagesVC.swift */,
+				A3C3645929DF1CF500731F4D /* PageControllerView.swift */,
 				A3CE61F229D7044A0020C95A /* OnePageViewController.swift */,
 				A3CE61F429D7047B0020C95A /* OnboardingPageView.swift */,
 			);
@@ -208,11 +216,12 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		A3D7B3BC29D633A900F0D3DB /* ModuleBuilder */ = {
+		A3D7B3BC29D633A900F0D3DB /* OnboardingFactory */ = {
 			isa = PBXGroup;
 			children = (
+				A3F7700229E0809600CE31AD /* OnboardingScreen.swift */,
 			);
-			path = ModuleBuilder;
+			path = OnboardingFactory;
 			sourceTree = "<group>";
 		};
 		A3D7B3BD29D63F8000F0D3DB /* Model */ = {
@@ -366,8 +375,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3CE620B29D752DC0020C95A /* BasePageViewController.swift in Sources */,
+				A3F7700529E08E0300CE31AD /* OnboardingRouter.swift in Sources */,
 				A3D7B3B629D62EE600F0D3DB /* BaseView.swift in Sources */,
-				A38A4D0729DAEB540026F627 /* R.generated.swift in Sources */,
 				A3CE61F729D705500020C95A /* Styles.swift in Sources */,
 				A3CE620729D740490020C95A /* OnboardingViewModel.swift in Sources */,
 				A3D7B3B829D6301E00F0D3DB /* BaseViewController.swift in Sources */,
@@ -377,9 +386,12 @@
 				A3CE620529D73A180020C95A /* ImageButton.swift in Sources */,
 				A3CE61EF29D6F4330020C95A /* Constants.swift in Sources */,
 				A3CE61F529D7047B0020C95A /* OnboardingPageView.swift in Sources */,
+				A3F7700129E05E9600CE31AD /* R.generated.swift in Sources */,
 				A3D7B39C29D62CA000F0D3DB /* OnboardingPagesVC.swift in Sources */,
 				A3D7B39829D62CA000F0D3DB /* AppDelegate.swift in Sources */,
+				A3F7700329E0809600CE31AD /* OnboardingScreen.swift in Sources */,
 				A3CE61FC29D729700020C95A /* BaseButton.swift in Sources */,
+				A3C3645A29DF1CF500731F4D /* PageControllerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

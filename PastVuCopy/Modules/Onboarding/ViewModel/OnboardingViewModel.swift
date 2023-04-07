@@ -6,12 +6,26 @@
 //
 
 import Foundation
+import Combine
+
+protocol OnboardingOutput {
+    func getData()
+}
 
 class OnboardingViewModel {
     
-    let pageModels: [OnboardingPageModel] = [
-        OnboardingPageModel(page: .page1),
-        OnboardingPageModel(page: .page2),
-        OnboardingPageModel(page: .page3)
-    ]
+    private let router: OnboardingRoutes
+    private let pageModels = OnboardingPageModel.Page.allCases.map { OnboardingPageModel(page: $0) }
+    weak var view: OnboardingInput?
+    
+    init(router: OnboardingRoutes) {
+        self.router = router
+    }
+}
+
+extension OnboardingViewModel: OnboardingOutput {
+    
+    func getData() {
+        view?.setupPages(with: pageModels)
+    }
 }

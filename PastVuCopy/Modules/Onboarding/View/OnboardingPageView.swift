@@ -40,6 +40,7 @@ class OnboardingPageView: BaseView {
     }()
     
     override func initSetup() {
+        backgroundColor = .white
         addSubview(vectorImageView)
         addSubview(titleLabel)
         addSubview(textLabel)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PageViewProtocol {
+protocol OnboardingPage: AnyObject {
     func setModel(model: OnboardingPageModel)
 }
 
@@ -18,7 +18,7 @@ class OnePageViewController: BaseViewController<OnboardingPageView> {
     }
 }
 
-extension OnePageViewController: PageViewProtocol {
+extension OnePageViewController: OnboardingPage {
     
     func setModel(model: OnboardingPageModel) {
         mainView.setData(model: model)
