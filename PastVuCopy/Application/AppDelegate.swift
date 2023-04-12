@@ -15,7 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = OnboardingScreen.build().pagesView
+        
+        if UserDefaultsService.shared.isOnboardingViewed {
+            window.rootViewController = OnboardingScreen.build().pagesView
+        } else {
+            window.rootViewController = MapScreen.build().viewController
+        }
+        
+        
         window.makeKeyAndVisible()
         self.window = window
         

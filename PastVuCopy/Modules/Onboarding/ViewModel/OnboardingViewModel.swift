@@ -31,6 +31,7 @@ extension OnboardingViewModel: OnboardingOutput {
     }
     
     func onboardingEnded() {
+        UserDefaultsService.shared.setOnboardingViewed(true)
         router.openMapScreen()
     }
 }

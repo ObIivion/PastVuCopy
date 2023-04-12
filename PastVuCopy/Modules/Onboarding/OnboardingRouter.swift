@@ -20,7 +20,6 @@ class OnboardingRouter: OnboardingRoutes {
         let mapViewController = MapScreen.build().viewController
         mapViewController.modalPresentationStyle = .fullScreen
         viewController.present(mapViewController, animated: true)
-        
     }
     
 }
