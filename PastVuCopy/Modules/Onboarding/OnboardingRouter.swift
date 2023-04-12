@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol OnboardingRoutes {
     func openMapScreen()
@@ -13,8 +14,13 @@ protocol OnboardingRoutes {
 
 class OnboardingRouter: OnboardingRoutes {
     
+    var viewController: UIViewController!
+    
     func openMapScreen() {
-        // :TODO
+        let mapViewController = MapScreen.build().viewController
+        mapViewController.modalPresentationStyle = .fullScreen
+        viewController.present(mapViewController, animated: true)
+        
     }
     
 }

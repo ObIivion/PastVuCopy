@@ -10,6 +10,7 @@ import Combine
 
 protocol OnboardingOutput {
     func getData()
+    func onboardingEnded()
 }
 
 class OnboardingViewModel {
@@ -27,5 +28,9 @@ extension OnboardingViewModel: OnboardingOutput {
     
     func getData() {
         view?.setupPages(with: pageModels)
+    }
+    
+    func onboardingEnded() {
+        router.openMapScreen()
     }
 }

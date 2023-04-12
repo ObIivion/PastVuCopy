@@ -17,6 +17,8 @@ class PageControllerView: BaseView {
         return button
     }()
     
+    private let testMapButton = BluredButton(frame: .init(x: 400, y: 400, width: 30, height: 30))
+    
     let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.currentPageIndicatorTintColor = UIColor(red: 1, green: 0.459, blue: 0.229, alpha: 1)
@@ -29,6 +31,7 @@ class PageControllerView: BaseView {
         
         addSubview(arrowButton)
         addSubview(pageControl)
+        addSubview(testMapButton)
         
         setupContraints()
     }

@@ -14,6 +14,7 @@ protocol OnboardingInput: AnyObject {
 class OnboardingPagesVC: UIPageViewController {
     
     private let pageVCView = PageControllerView(frame: UIScreen.main.bounds)
+    
     private var pages: [UIViewController] = []
     var viewModel: OnboardingOutput!
     
@@ -91,7 +92,10 @@ extension OnboardingPagesVC {
     
     private func goToNextPage() {
         guard let currentPage = viewControllers?.first else { return }
-        guard let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else { return }
+        guard let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else {
+            viewModel.onboardingEnded()
+            return
+        }
         setViewControllers([nextPage], direction: .forward, animated: true)
     }
 }

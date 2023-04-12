@@ -7,14 +7,19 @@
 
 import UIKit
 
-//class BaseButton: UIButton {
-//
-//    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        initSetup()
-//    }
-//    
-//    func initSetup()
-//
-//}
+class BaseButton: UIButton {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initSetup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("")
+    }
+    
+    func initSetup() {
+        // override on subclasses
+    }
+    
+}

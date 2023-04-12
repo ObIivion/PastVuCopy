@@ -6,9 +6,9 @@
   
 */
 
-"explore" = "Исследуй";
-"study" = "Изучай";
-"takePictures" = "Фотографируй";
+"explore" = "Исследуй!";
+"study" = "Изучай!";
+"takePictures" = "Фотографируй!";
 "inMapOrListMode" = "С помощью карты или в режиме списка";
 "theHistoryOfYourCityOnPhotos" = "Историю своего города по фотографиям из разных эпох";
 "compareHowUrbanEnvironmentChanged" = "И сравнивай как изменилась городская среда";

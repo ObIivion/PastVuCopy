@@ -12,12 +12,10 @@ class OnboardingScreen {
     
     let pagesView: OnboardingPagesVC
     let viewModel: OnboardingViewModel
-    let router: OnboardingRouter
     
-    private init(pagesView: OnboardingPagesVC, viewModel: OnboardingViewModel, router: OnboardingRouter) {
+    private init(pagesView: OnboardingPagesVC, viewModel: OnboardingViewModel) {
         self.pagesView = pagesView
         self.viewModel = viewModel
-        self.router = router
     }
     
     static func build() -> OnboardingScreen {
@@ -26,8 +24,8 @@ class OnboardingScreen {
         let pagesViewController = OnboardingPagesVC(transitionStyle: .scroll, navigationOrientation: .horizontal)
         viewModel.view = pagesViewController
         pagesViewController.viewModel = viewModel
-        
-        return OnboardingScreen(pagesView: pagesViewController, viewModel: viewModel, router: router)
+        router.viewController = pagesViewController
+        return OnboardingScreen(pagesView: pagesViewController, viewModel: viewModel)
     }
     
 }

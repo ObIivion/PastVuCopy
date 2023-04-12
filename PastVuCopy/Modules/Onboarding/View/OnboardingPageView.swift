@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Rswift
 
 class OnboardingPageView: BaseView {
     
@@ -14,7 +15,7 @@ class OnboardingPageView: BaseView {
         label.textAlignment = .center
         label.textColor = UIColor(red: 0.267, green: 0.173, blue: 0.133, alpha: 1)
         label.numberOfLines = 1
-        label.font = UIFont.systemFont(ofSize: 22)
+        label.font = R.font.montserratAlternatesSemiBold(size: 22)
         return label
     }()
     
@@ -23,7 +24,7 @@ class OnboardingPageView: BaseView {
         label.textAlignment = .center
         label.textColor = UIColor(red: 0.729, green: 0.661, blue: 0.632, alpha: 1)
         label.numberOfLines = 3
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.font = R.font.montserratAlternatesMedium(size: 13)
         return label
     }()
     
