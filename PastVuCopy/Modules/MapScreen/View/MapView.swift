@@ -9,9 +9,13 @@ import Foundation
 import UIKit
 import MapKit
 
-class MapView: UIView {
+class MapView: BaseView {
     
-    let mapView = MKMapView()
+    let mapView: MKMapView = {
+        let map = MKMapView()
+        map.showsUserLocation = true
+        return map
+    }()
     
     let plusButton: BluredButton = {
         let button = BluredButton()
@@ -75,9 +79,7 @@ class MapView: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    override func initSetup() {
         addSubview(mapView)
         addSubview(plusButton)
         addSubview(minusButton)
@@ -94,8 +96,8 @@ class MapView: UIView {
         setupConstraints()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError()
+    func updateMapRegion(newRegion: MKCoordinateRegion) {
+        mapView.setRegion(newRegion, animated: true)
     }
     
     private func setupConstraints() {

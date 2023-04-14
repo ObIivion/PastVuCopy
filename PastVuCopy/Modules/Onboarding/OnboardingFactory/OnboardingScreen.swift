@@ -11,21 +11,21 @@ import UIKit
 class OnboardingScreen {
     
     let pagesView: OnboardingPagesVC
-    let viewModel: OnboardingViewModel
+    let presenter: OnboardingPresenter
     
-    private init(pagesView: OnboardingPagesVC, viewModel: OnboardingViewModel) {
+    private init(pagesView: OnboardingPagesVC, presenter: OnboardingPresenter) {
         self.pagesView = pagesView
-        self.viewModel = viewModel
+        self.presenter = presenter
     }
     
     static func build() -> OnboardingScreen {
         let router = OnboardingRouter()
-        let viewModel = OnboardingViewModel(router: router)
+        let presenter = OnboardingPresenter(router: router)
         let pagesViewController = OnboardingPagesVC(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        viewModel.view = pagesViewController
-        pagesViewController.viewModel = viewModel
+        presenter.view = pagesViewController
+        pagesViewController.presenter = presenter
         router.viewController = pagesViewController
-        return OnboardingScreen(pagesView: pagesViewController, viewModel: viewModel)
+        return OnboardingScreen(pagesView: pagesViewController, presenter: presenter)
     }
     
 }

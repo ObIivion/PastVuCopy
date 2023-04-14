@@ -11,21 +11,22 @@ import UIKit
 class MapScreen {
     
     let viewController: MapViewController
-    let viewModel: MapViewModel
+    let presenter: MapPresenter
     
-    private init(viewController: MapViewController, viewModel: MapViewModel) {
+    private init(viewController: MapViewController, presenter: MapPresenter) {
         self.viewController = viewController
-        self.viewModel = viewModel
+        self.presenter = presenter
     }
     
     static func build() -> MapScreen {
         
         let viewController = MapViewController()
         let router = MapScreenRouter()
-        let viewModel = MapViewModel(router: router)
-        viewModel.view = viewController
+        let presenter = MapPresenter(router: router)
+        presenter.view = viewController
+        viewController.presenter = presenter
         router.viewController = viewController
-        return MapScreen(viewController: viewController, viewModel: viewModel)
+        return MapScreen(viewController: viewController, presenter: presenter)
     }
     
 }

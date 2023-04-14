@@ -7,12 +7,11 @@
 
 import Foundation
 
-// написать "если пользователь уже видел онбординг - больше не показывать, а сразу на карту"
-class UserDefaultsService {
+final class UserDefaultsService {
     
     static let shared = UserDefaultsService()
     
-    private let userDefaults = UserDefaults()
+    private let userDefaults = UserDefaults.standard
     
     var isOnboardingViewed: Bool {
         userDefaults.bool(forKey: "isOnboardingViewed")

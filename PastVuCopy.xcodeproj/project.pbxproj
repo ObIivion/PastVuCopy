@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30918C029E976580053F576 /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30918BF29E976580053F576 /* ApiProvider.swift */; };
+		A30918C229E976C40053F576 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30918C129E976C40053F576 /* LocationService.swift */; };
 		A30CE97829E716D30049F1BA /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CE97729E716D30049F1BA /* MapScreen.swift */; };
 		A30CE97A29E7172E0049F1BA /* MapScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CE97929E7172E0049F1BA /* MapScreenRouter.swift */; };
 		A3899FA229E45A9400A1E680 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3899FA129E45A9400A1E680 /* MapView.swift */; };
 		A3899FA829E5596600A1E680 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3899FA729E5596600A1E680 /* Model.swift */; };
-		A3899FAA29E5597900A1E680 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3899FA929E5597900A1E680 /* MapViewModel.swift */; };
+		A3899FAA29E5597900A1E680 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3899FA929E5597900A1E680 /* MapPresenter.swift */; };
 		A3899FBE29E55BF200A1E680 /* MontserratAlternates-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3899FAC29E55BF100A1E680 /* MontserratAlternates-Light.ttf */; };
 		A3899FBF29E55BF200A1E680 /* MontserratAlternates-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3899FAD29E55BF100A1E680 /* MontserratAlternates-Medium.ttf */; };
 		A3899FC029E55BF200A1E680 /* MontserratAlternates-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3899FAE29E55BF100A1E680 /* MontserratAlternates-ExtraBold.ttf */; };
@@ -58,11 +60,13 @@
 
 /* Begin PBXFileReference section */
 		533971C3B4DDA858F0CD3BD8 /* Pods-PastVuCopy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PastVuCopy.release.xcconfig"; path = "Target Support Files/Pods-PastVuCopy/Pods-PastVuCopy.release.xcconfig"; sourceTree = "<group>"; };
+		A30918BF29E976580053F576 /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
+		A30918C129E976C40053F576 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		A30CE97729E716D30049F1BA /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		A30CE97929E7172E0049F1BA /* MapScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenRouter.swift; sourceTree = "<group>"; };
 		A3899FA129E45A9400A1E680 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A3899FA729E5596600A1E680 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		A3899FA929E5597900A1E680 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		A3899FA929E5597900A1E680 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		A3899FAC29E55BF100A1E680 /* MontserratAlternates-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Light.ttf"; sourceTree = "<group>"; };
 		A3899FAD29E55BF100A1E680 /* MontserratAlternates-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Medium.ttf"; sourceTree = "<group>"; };
 		A3899FAE29E55BF100A1E680 /* MontserratAlternates-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -131,12 +135,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A30918BE29E976490053F576 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A30918BF29E976580053F576 /* ApiProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		A3899FA029E4570500A1E680 /* MapScreen */ = {
 			isa = PBXGroup;
 			children = (
 				A3899FA629E45C0000A1E680 /* MapScreenFactory */,
 				A3899FA529E45AC200A1E680 /* Model */,
-				A3899FA429E45ABA00A1E680 /* ViewModel */,
+				A3899FA429E45ABA00A1E680 /* Presenter */,
 				A3899FA329E45AB500A1E680 /* View */,
 				A30CE97929E7172E0049F1BA /* MapScreenRouter.swift */,
 			);
@@ -152,12 +164,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A3899FA429E45ABA00A1E680 /* ViewModel */ = {
+		A3899FA429E45ABA00A1E680 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				A3899FA929E5597900A1E680 /* MapViewModel.swift */,
+				A3899FA929E5597900A1E680 /* MapPresenter.swift */,
 			);
-			path = ViewModel;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		A3899FA529E45AC200A1E680 /* Model */ = {
@@ -244,6 +256,7 @@
 		A3D7B39629D62CA000F0D3DB /* PastVuCopy */ = {
 			isa = PBXGroup;
 			children = (
+				A30918BE29E976490053F576 /* Network */,
 				A3D7B3A529D62CA100F0D3DB /* Info.plist */,
 				A3D7B3AD29D62DF800F0D3DB /* Application */,
 				A3D7B3B929D6331000F0D3DB /* Services */,
@@ -277,7 +290,7 @@
 			children = (
 				A3D7B3BC29D633A900F0D3DB /* OnboardingFactory */,
 				A3D7B3BD29D63F8000F0D3DB /* Model */,
-				A3D7B3B129D62E4200F0D3DB /* ViewModel */,
+				A3D7B3B129D62E4200F0D3DB /* Presenter */,
 				A3D7B3B029D62E3300F0D3DB /* View */,
 				A3F7700429E08E0300CE31AD /* OnboardingRouter.swift */,
 			);
@@ -295,12 +308,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A3D7B3B129D62E4200F0D3DB /* ViewModel */ = {
+		A3D7B3B129D62E4200F0D3DB /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				A3CE620629D740490020C95A /* OnboardingViewModel.swift */,
 			);
-			path = ViewModel;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		A3D7B3B229D62EB000F0D3DB /* Common */ = {
@@ -335,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				A3D7B3BA29D6333C00F0D3DB /* UserDefaultsService.swift */,
+				A30918C129E976C40053F576 /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -503,6 +517,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -522,6 +537,7 @@
 				A3CE61F729D705500020C95A /* Styles.swift in Sources */,
 				A3CE620729D740490020C95A /* OnboardingViewModel.swift in Sources */,
 				A3D7B3B829D6301E00F0D3DB /* BaseViewController.swift in Sources */,
+				A30918C229E976C40053F576 /* LocationService.swift in Sources */,
 				A3CE61F329D7044A0020C95A /* OnePageViewController.swift in Sources */,
 				A3899FD429E5669400A1E680 /* BluredButton.swift in Sources */,
 				A3899FD129E560CD00A1E680 /* R.generated.swift in Sources */,
@@ -530,8 +546,9 @@
 				A3899FD629E5757100A1E680 /* MapViewController.swift in Sources */,
 				A3D7B3BB29D6333C00F0D3DB /* UserDefaultsService.swift in Sources */,
 				A30CE97A29E7172E0049F1BA /* MapScreenRouter.swift in Sources */,
+				A30918C029E976580053F576 /* ApiProvider.swift in Sources */,
 				A3CE61EF29D6F4330020C95A /* Constants.swift in Sources */,
-				A3899FAA29E5597900A1E680 /* MapViewModel.swift in Sources */,
+				A3899FAA29E5597900A1E680 /* MapPresenter.swift in Sources */,
 				A3CE61F529D7047B0020C95A /* OnboardingPageView.swift in Sources */,
 				A3D7B39C29D62CA000F0D3DB /* OnboardingPagesVC.swift in Sources */,
 				A3D7B39829D62CA000F0D3DB /* AppDelegate.swift in Sources */,

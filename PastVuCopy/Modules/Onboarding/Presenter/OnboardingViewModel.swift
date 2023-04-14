@@ -13,7 +13,7 @@ protocol OnboardingOutput {
     func onboardingEnded()
 }
 
-class OnboardingViewModel {
+class OnboardingPresenter {
     
     private let router: OnboardingRoutes
     private let pageModels = OnboardingPageModel.Page.allCases.map { OnboardingPageModel(page: $0) }
@@ -24,7 +24,7 @@ class OnboardingViewModel {
     }
 }
 
-extension OnboardingViewModel: OnboardingOutput {
+extension OnboardingPresenter: OnboardingOutput {
     
     func getData() {
         view?.setupPages(with: pageModels)

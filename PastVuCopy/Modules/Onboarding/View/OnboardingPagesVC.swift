@@ -16,7 +16,7 @@ class OnboardingPagesVC: UIPageViewController {
     private let pageVCView = PageControllerView(frame: UIScreen.main.bounds)
     
     private var pages: [UIViewController] = []
-    var viewModel: OnboardingOutput!
+    var presenter: OnboardingOutput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class OnboardingPagesVC: UIPageViewController {
         
         pageVCView.arrowButton.addTarget(self, action: #selector(nextTapped(_:)), for: .touchUpInside)
         
-        viewModel.getData()
+        presenter.getData()
         setupPageControl()
     }
     
@@ -93,7 +93,7 @@ extension OnboardingPagesVC {
     private func goToNextPage() {
         guard let currentPage = viewControllers?.first else { return }
         guard let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else {
-            viewModel.onboardingEnded()
+            presenter.onboardingEnded()
             return
         }
         setViewControllers([nextPage], direction: .forward, animated: true)
