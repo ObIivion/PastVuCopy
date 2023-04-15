@@ -25,7 +25,7 @@ class MapViewController: BaseViewController<MapView> {
         mainView.compassButton.addTarget(self, action: #selector(compassButtonPressed(_:)), for: .touchUpInside)
         mainView.cameraButton.addTarget(self, action: #selector(cameraButtonPressed(_:)), for: .touchUpInside)
         
-        presenter.getInitialRegion()
+        presenter.getUserRegion()
         
         
     }
@@ -51,11 +51,19 @@ class MapViewController: BaseViewController<MapView> {
     }
     
     @objc func compassButtonPressed(_ sender: UIButton) {
-        
-        
-        
+        presenter.getUserRegion()
     }
 
+}
+
+extension MapViewController {
+    
+    func mapRegionObserver() {
+        
+        //тащить во вью, не в сервис
+        mainView.mapView.region
+    }
+    
 }
 
 extension MapViewController: MapViewInput {

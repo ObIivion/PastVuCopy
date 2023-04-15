@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A30918C029E976580053F576 /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30918BF29E976580053F576 /* ApiProvider.swift */; };
 		A30918C229E976C40053F576 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30918C129E976C40053F576 /* LocationService.swift */; };
+		A30918C429E98A120053F576 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30918C329E98A120053F576 /* MapService.swift */; };
 		A30CE97829E716D30049F1BA /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CE97729E716D30049F1BA /* MapScreen.swift */; };
 		A30CE97A29E7172E0049F1BA /* MapScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30CE97929E7172E0049F1BA /* MapScreenRouter.swift */; };
 		A3899FA229E45A9400A1E680 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3899FA129E45A9400A1E680 /* MapView.swift */; };
@@ -62,6 +63,7 @@
 		533971C3B4DDA858F0CD3BD8 /* Pods-PastVuCopy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PastVuCopy.release.xcconfig"; path = "Target Support Files/Pods-PastVuCopy/Pods-PastVuCopy.release.xcconfig"; sourceTree = "<group>"; };
 		A30918BF29E976580053F576 /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		A30918C129E976C40053F576 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		A30918C329E98A120053F576 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		A30CE97729E716D30049F1BA /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		A30CE97929E7172E0049F1BA /* MapScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenRouter.swift; sourceTree = "<group>"; };
 		A3899FA129E45A9400A1E680 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			children = (
 				A3D7B3BA29D6333C00F0D3DB /* UserDefaultsService.swift */,
 				A30918C129E976C40053F576 /* LocationService.swift */,
+				A30918C329E98A120053F576 /* MapService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				A3D7B3B629D62EE600F0D3DB /* BaseView.swift in Sources */,
 				A3CE61F729D705500020C95A /* Styles.swift in Sources */,
 				A3CE620729D740490020C95A /* OnboardingViewModel.swift in Sources */,
+				A30918C429E98A120053F576 /* MapService.swift in Sources */,
 				A3D7B3B829D6301E00F0D3DB /* BaseViewController.swift in Sources */,
 				A30918C229E976C40053F576 /* LocationService.swift in Sources */,
 				A3CE61F329D7044A0020C95A /* OnePageViewController.swift in Sources */,

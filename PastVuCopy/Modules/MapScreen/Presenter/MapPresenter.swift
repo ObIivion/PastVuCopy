@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol MapOutput {
-    func getInitialRegion()
+    func getUserRegion()
     func getClustersAndPhotos()
 }
 
@@ -28,8 +28,8 @@ class MapPresenter {
 
 extension MapPresenter: MapOutput {
     
-    func getInitialRegion() {
-        guard let userRegion = locationService.userRegion else { print("@@@@@@@@@@@@@ UserRegionIsNil"); return }
+    func getUserRegion() {
+        guard let userRegion = locationService.userRegion else { return }
         view?.updateRegion(newRegion: userRegion)
     }
     

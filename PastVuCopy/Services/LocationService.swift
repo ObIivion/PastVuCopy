@@ -9,19 +9,20 @@ import Foundation
 import MapKit
 import CoreLocation
 
-final class LocationService {
+final class LocationService: NSObject {
     
-    private let locationManager: CLLocationManager = {
+    private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.startUpdatingLocation()
+        manager.delegate = self
         return manager
     }()
     
     var userRegion: MKCoordinateRegion? {
-        checkLocationServices()
+        checkLocationAuthStatus()
         guard let userLocation = locationManager.location?.coordinate else { return nil }
-        let userSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let userSpan = MKCoordinateSpan(latitudeDelta: 0.0005, longitudeDelta: 0.0005)
         let userRegion = MKCoordinateRegion(center: userLocation, span: userSpan)
         print(userLocation)
         return userRegion
@@ -33,7 +34,6 @@ final class LocationService {
     }
     
     private func checkLocationAuthStatus() {
-        print(CLLocationManager.authorizationStatus())
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways:
             break;
@@ -45,10 +45,12 @@ final class LocationService {
             break;
         }
     }
+}
+
+extension LocationService: CLLocationManagerDelegate {
     
-    private func checkLocationServices() {
-        if CLLocationManager.locationServicesEnabled() {
-            checkLocationAuthStatus()
-        }
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthStatus()
     }
+    
 }
