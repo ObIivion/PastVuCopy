@@ -37,6 +37,7 @@
 		A3899FD429E5669400A1E680 /* BluredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3899FD329E5669400A1E680 /* BluredButton.swift */; };
 		A3899FD629E5757100A1E680 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3899FD529E5757100A1E680 /* MapViewController.swift */; };
 		A3C3645A29DF1CF500731F4D /* PageControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C3645929DF1CF500731F4D /* PageControllerView.swift */; };
+		A3CE00BA29EEC18C0040C535 /* Map + getZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE00B929EEC18C0040C535 /* Map + getZoom.swift */; };
 		A3CE61EF29D6F4330020C95A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE61EE29D6F4330020C95A /* Constants.swift */; };
 		A3CE61F129D6F4DF0020C95A /* ru.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3CE61F029D6F4DF0020C95A /* ru.strings */; };
 		A3CE61F329D7044A0020C95A /* OnePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE61F229D7044A0020C95A /* OnePageViewController.swift */; };
@@ -91,6 +92,7 @@
 		A3899FD329E5669400A1E680 /* BluredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluredButton.swift; sourceTree = "<group>"; };
 		A3899FD529E5757100A1E680 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A3C3645929DF1CF500731F4D /* PageControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControllerView.swift; sourceTree = "<group>"; };
+		A3CE00B929EEC18C0040C535 /* Map + getZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Map + getZoom.swift"; sourceTree = "<group>"; };
 		A3CE61EE29D6F4330020C95A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A3CE61F029D6F4DF0020C95A /* ru.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ru.strings; sourceTree = "<group>"; };
 		A3CE61F229D7044A0020C95A /* OnePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePageViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		A3CE00B829EEC1750040C535 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A3CE00B929EEC18C0040C535 /* Map + getZoom.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A3CE61ED29D6F3E20020C95A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +268,7 @@
 		A3D7B39629D62CA000F0D3DB /* PastVuCopy */ = {
 			isa = PBXGroup;
 			children = (
+				A3CE00B829EEC1750040C535 /* Extensions */,
 				A30918BE29E976490053F576 /* Network */,
 				A3D7B3A529D62CA100F0D3DB /* Info.plist */,
 				A3D7B3AD29D62DF800F0D3DB /* Application */,
@@ -542,6 +553,7 @@
 				A30918C429E98A120053F576 /* MapService.swift in Sources */,
 				A3D7B3B829D6301E00F0D3DB /* BaseViewController.swift in Sources */,
 				A30918C229E976C40053F576 /* LocationService.swift in Sources */,
+				A3CE00BA29EEC18C0040C535 /* Map + getZoom.swift in Sources */,
 				A3CE61F329D7044A0020C95A /* OnePageViewController.swift in Sources */,
 				A3899FD429E5669400A1E680 /* BluredButton.swift in Sources */,
 				A3899FD129E560CD00A1E680 /* R.generated.swift in Sources */,

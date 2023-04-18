@@ -22,9 +22,8 @@ final class LocationService: NSObject {
     var userRegion: MKCoordinateRegion? {
         checkLocationAuthStatus()
         guard let userLocation = locationManager.location?.coordinate else { return nil }
-        let userSpan = MKCoordinateSpan(latitudeDelta: 0.0005, longitudeDelta: 0.0005)
+        let userSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0.05)
         let userRegion = MKCoordinateRegion(center: userLocation, span: userSpan)
-        print(userLocation)
         return userRegion
     }
     
@@ -52,5 +51,4 @@ extension LocationService: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthStatus()
     }
-    
 }
