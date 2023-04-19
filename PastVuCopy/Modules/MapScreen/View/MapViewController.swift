@@ -33,51 +33,11 @@ class MapViewController: BaseViewController<MapView> {
     //        presenter.getClustersAndPhotos()
     
     @objc func plusButtonPressed(_ sender: UIButton) {
-        //mainView.decreaseRegion()
-        let rightDiv = Double(mainView.mapView.frame.size.width) / 256
-        let span = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom)) * rightDiv)
-        
-        print(#function)
-        print("span", span)
-        print("currentZoom", mainView.mapView.currentZoom)
-        DispatchQueue.main.async {
-            print("AsyncCurrentZoom", self.mainView.mapView.currentZoom)
-            print("AsyncSpan", MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^self.mainView.mapView.currentZoom)) * rightDiv))
-        }
-        print("currentSpan", mainView.mapView.region.span)
-        
-        DispatchQueue.main.async {
-            print("currentAsyncSpan", self.mainView.mapView.region.span)
-        }
-        
-        let plusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom + 1)) * rightDiv)
-        let minusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom - 1)) * rightDiv)
-        
-        print("plusSpan", plusSpan)
-        print("minusSpan", minusSpan)
-        
-        //mainView.mapView.setRegion(region, animated: true)
+        mainView.mapView.increaseZoom2()
     }
     
     @objc func minusButtonPressed(_ sender: UIButton) {
-        //mainView.increaseRegion()
-        var span = MKCoordinateSpan()
-        let rightDiv = Double(mainView.mapView.frame.size.width) / 256
-        
-        DispatchQueue.main.async {
-            span = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^self.mainView.mapView.currentZoom)) * rightDiv)
-        }
-        
-        print(#function)
-        print("currentZoom", mainView.mapView.currentZoom)
-        print("currentSpan", mainView.mapView.region.span)
-        print(span)
-        
-        let plusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom + 1)) * rightDiv)
-        let minusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom - 1)) * rightDiv)
-        
-        print("plusSpan", plusSpan)
-        print("minusSpan", minusSpan)
+        mainView.mapView.decreaseZoom2()
     }
     
     @objc func cameraButtonPressed(_ sender: UIButton) {
@@ -108,18 +68,23 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
-        let rightDiv = Double(mainView.mapView.frame.size.width) / 256
-        let span = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom)) * rightDiv)
-        print(#function)
-        print("span", span)
-        print("currentSpan", mainView.mapView.region.span)
-        print("currentZoom", mainView.mapView.currentZoom)
+        print("regionDidChange Span: ", mainView.mapView.region.span)
         
-        let plusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom + 1)) * rightDiv)
-        let minusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom - 1)) * rightDiv)
-        
-        print("plusSpan", plusSpan)
-        print("minusSpan", minusSpan)
+//        let rightDiv = Double(mainView.mapView.frame.size.width) / 256
+//        let span = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom)) * rightDiv / 100)
+//        print()
+//        print()
+//        print()
+//        print(#function)
+//        print("span", span)
+//        print("currentSpan", mainView.mapView.region.span)
+//        print("currentZoom", mainView.mapView.currentZoom)
+//
+//        let plusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom + 1)) * rightDiv / 100)
+//        let minusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom - 1)) * rightDiv / 100)
+//
+//        print("plusSpan", plusSpan)
+//        print("minusSpan", minusSpan)
     }
     
 }
