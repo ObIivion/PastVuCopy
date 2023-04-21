@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3066F5C29F1C29C0046375E /* BoundsPhotoModelBoundsPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3066F5B29F1C29C0046375E /* BoundsPhotoModelBoundsPhotoModel.swift */; };
+		A3066F5E29F1DE940046375E /* StructuredApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3066F5D29F1DE940046375E /* StructuredApiProvider.swift */; };
+		A3066F6029F1E4BE0046375E /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3066F5F29F1E4BE0046375E /* URLRequestBuilder.swift */; };
 		A30918C029E976580053F576 /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30918BF29E976580053F576 /* ApiProvider.swift */; };
 		A30918C229E976C40053F576 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30918C129E976C40053F576 /* LocationService.swift */; };
 		A30918C429E98A120053F576 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30918C329E98A120053F576 /* MapService.swift */; };
@@ -62,6 +65,9 @@
 
 /* Begin PBXFileReference section */
 		533971C3B4DDA858F0CD3BD8 /* Pods-PastVuCopy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PastVuCopy.release.xcconfig"; path = "Target Support Files/Pods-PastVuCopy/Pods-PastVuCopy.release.xcconfig"; sourceTree = "<group>"; };
+		A3066F5B29F1C29C0046375E /* BoundsPhotoModelBoundsPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundsPhotoModelBoundsPhotoModel.swift; sourceTree = "<group>"; };
+		A3066F5D29F1DE940046375E /* StructuredApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuredApiProvider.swift; sourceTree = "<group>"; };
+		A3066F5F29F1E4BE0046375E /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
 		A30918BF29E976580053F576 /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		A30918C129E976C40053F576 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		A30918C329E98A120053F576 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
@@ -143,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				A30918BF29E976580053F576 /* ApiProvider.swift */,
+				A3066F5D29F1DE940046375E /* StructuredApiProvider.swift */,
+				A3066F5F29F1E4BE0046375E /* URLRequestBuilder.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				A3899FA729E5596600A1E680 /* Model.swift */,
+				A3066F5B29F1C29C0046375E /* BoundsPhotoModelBoundsPhotoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -546,8 +555,10 @@
 			files = (
 				A30CE97829E716D30049F1BA /* MapScreen.swift in Sources */,
 				A3CE620B29D752DC0020C95A /* BasePageViewController.swift in Sources */,
+				A3066F5E29F1DE940046375E /* StructuredApiProvider.swift in Sources */,
 				A3F7700529E08E0300CE31AD /* OnboardingRouter.swift in Sources */,
 				A3D7B3B629D62EE600F0D3DB /* BaseView.swift in Sources */,
+				A3066F6029F1E4BE0046375E /* URLRequestBuilder.swift in Sources */,
 				A3CE61F729D705500020C95A /* Styles.swift in Sources */,
 				A3CE620729D740490020C95A /* OnboardingViewModel.swift in Sources */,
 				A30918C429E98A120053F576 /* MapService.swift in Sources */,
@@ -566,6 +577,7 @@
 				A3CE61EF29D6F4330020C95A /* Constants.swift in Sources */,
 				A3899FAA29E5597900A1E680 /* MapPresenter.swift in Sources */,
 				A3CE61F529D7047B0020C95A /* OnboardingPageView.swift in Sources */,
+				A3066F5C29F1C29C0046375E /* BoundsPhotoModelBoundsPhotoModel.swift in Sources */,
 				A3D7B39C29D62CA000F0D3DB /* OnboardingPagesVC.swift in Sources */,
 				A3D7B39829D62CA000F0D3DB /* AppDelegate.swift in Sources */,
 				A3F7700329E0809600CE31AD /* OnboardingScreen.swift in Sources */,
@@ -715,6 +727,8 @@
 				DEVELOPMENT_TEAM = Y54A39PP54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PastVuCopy/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Чтобы полноценно пользоваься приложением, нам необходим доступ к геолокации даже в фоновом режиме. Это позволит вам не пропустить интеременые места рядом с Вами";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Разрешите доступ к геолокации, без него приложение бессмысленно использовать.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -745,6 +759,8 @@
 				DEVELOPMENT_TEAM = Y54A39PP54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PastVuCopy/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Чтобы полноценно пользоваься приложением, нам необходим доступ к геолокации даже в фоновом режиме. Это позволит вам не пропустить интеременые места рядом с Вами";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Разрешите доступ к геолокации, без него приложение бессмысленно использовать.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

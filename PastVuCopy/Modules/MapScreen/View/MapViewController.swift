@@ -28,16 +28,16 @@ class MapViewController: BaseViewController<MapView> {
         mainView.mapView.delegate = self
         presenter.getUserRegion()
         
+        
+        
     }
     
-    //        presenter.getClustersAndPhotos()
-    
     @objc func plusButtonPressed(_ sender: UIButton) {
-        mainView.mapView.increaseZoom2()
+        mainView.mapView.zoomIn()
     }
     
     @objc func minusButtonPressed(_ sender: UIButton) {
-        mainView.mapView.decreaseZoom2()
+        mainView.mapView.zoomOut()
     }
     
     @objc func cameraButtonPressed(_ sender: UIButton) {
@@ -67,24 +67,21 @@ extension MapViewController: MapViewInput {
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+       
+        let topLeftCoord = mapView.convert(CGPoint(x: 0, y: 0), toCoordinateFrom: mapView)
+        let topRightCoord = mapView.convert(CGPoint(x: mapView.frame.width, y: 0), toCoordinateFrom: mapView)
+        let bottomLeftCoord = mapView.convert(CGPoint(x: 0, y: mapView.frame.height), toCoordinateFrom: mapView)
+        let bottomRightCoord = mapView.convert(CGPoint(x: mapView.frame.width, y: mapView.frame.height), toCoordinateFrom: mapView)
         
-        print("regionDidChange Span: ", mainView.mapView.region.span)
+        var polygon = [CLLocationCoordinate2D]()
+        polygon.append(topLeftCoord)
+        polygon.append(bottomLeftCoord)
+        polygon.append(bottomRightCoord)
+        polygon.append(topRightCoord)
+        polygon.append(topLeftCoord)
         
-//        let rightDiv = Double(mainView.mapView.frame.size.width) / 256
-//        let span = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom)) * rightDiv / 100)
-//        print()
-//        print()
-//        print()
-//        print(#function)
-//        print("span", span)
-//        print("currentSpan", mainView.mapView.region.span)
-//        print("currentZoom", mainView.mapView.currentZoom)
-//
-//        let plusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom + 1)) * rightDiv / 100)
-//        let minusSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: Double(360 / (2^mainView.mapView.currentZoom - 1)) * rightDiv / 100)
-//
-//        print("plusSpan", plusSpan)
-//        print("minusSpan", minusSpan)
+        Task {
+            await presenter.getPhotosByBounds(geoPolygon: polygon, zoomLevel: mapView.currentZoom)
+        }
     }
-    
 }

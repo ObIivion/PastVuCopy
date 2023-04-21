@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Чтобы полноценно пользоваься приложением, нам необходим доступ к геолокации даже в фоновом режиме. Это позволит вам не пропустить интеременые места рядом с Вами</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Разрешите доступ к геолокации, без него приложение бессмысленно использовать.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MontserratAlternates-Black.ttf</string>
@@ -27,5 +23,7 @@
 		<string>MontserratAlternates-Thin.ttf</string>
 		<string>MontserratAlternates-ThinItalic.ttf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array/>
 </dict>
 </plist>

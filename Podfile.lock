@@ -1,20 +1,24 @@
 PODS:
-  - R.swift (7.3.0)
+  - Kingfisher (7.6.2)
+  - R.swift (7.3.2)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - Kingfisher (~> 7.0)
   - R.swift
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - R.swift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  R.swift: cef1c530541cb49412752721797f10dae6b32d11
+  Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
+  R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: e333d97ce5103fc93813974360c836c8dfa0c041
+PODFILE CHECKSUM: b6b32c7396c35cc7d114c6b9d9cc388acd76e833
 
 COCOAPODS: 1.12.0

@@ -41,7 +41,7 @@ final class LocationService: NSObject {
         case .restricted, .denied, .authorizedWhenInUse, .notDetermined:
             locationManager.requestAlwaysAuthorization()
         @unknown default:
-            break;
+            locationManager.requestAlwaysAuthorization()
         }
     }
 }
@@ -49,6 +49,18 @@ final class LocationService: NSObject {
 extension LocationService: CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        if #available(iOS 14.0, *) {
+            print("available")
+            print(manager.authorizationStatus.rawValue)
+        } else {
+            print("not available")
+            print(CLLocationManager.authorizationStatus().rawValue)
+        }
+        
         checkLocationAuthStatus()
     }
+    
+    
+    
 }

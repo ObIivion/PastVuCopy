@@ -10,62 +10,35 @@ import Combine
 
 class ApiProvider {
     
-    let session: URLSession
+    private let session: URLSession
+    private let requestBuilder = URLRequestBuilder()
     
     init(session: URLSession = .shared) {
         self.session = session
     }
     
-    func makeRequest() -> URLRequest {
+    func makeDataRequestByBounds(polygonCoordinates: [[[Double]]],
+                                 zoomLevel: UInt,
+                                 completion: @escaping (Swift.Result<PhotoByBoundsModel, Error>) -> Void ) {
         
-        let queryItemMethod = URLQueryItem(name: "method", value: "photo.giveForPage")
-        let queryParams = URLQueryItem(name: "params", value: "{\"cid\":5}")
+        let request = requestBuilder.makeGeoBoundsRequest(polygonCoordinates: polygonCoordinates, zoomLevel: zoomLevel)
         
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "pastvu.com"
-        urlComponents.path = "/api2"
-        urlComponents.queryItems = [queryItemMethod, queryParams]
-        
-        var request = URLRequest(url: urlComponents.url!)
-        request.httpMethod = "GET"
-        
-        return request
-    }
-    
-    func makePhotoRequestByBounds() -> URLRequest {
-        
-        let queryItemMethod = URLQueryItem(name: "method", value: "photo.getByBounds")
-        let queryParams = URLQueryItem(name: "params", value: "{\"cid\":5}")
-        
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "pastvu.com"
-        urlComponents.path = "/api2"
-        urlComponents.queryItems = [queryItemMethod, queryParams]
-        
-        var request = URLRequest(url: urlComponents.url!)
-        request.httpMethod = "GET"
-        
-        return request
-        
-    }
-    
-    func getPhotosAndClusters() {
-        
-        let request = makeRequest()
-        
-        let task = session.dataTask(with: request) { data, _, error in
+        let task = session.dataTask(with: request) { data, response, error in
             
             guard let data = data, error == nil else { return }
             
-            print(data)
-            
             do {
-                let statusesArray = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                print(statusesArray)
+                //let statusesArray = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                let jsonDecoder = JSONDecoder()
+                let photoInfo = try jsonDecoder.decode(PhotoByBoundsModel.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(photoInfo))
+                }
             } catch let error {
                 print("ERROR: \(error)")
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
         }
         task.resume()

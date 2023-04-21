@@ -10,6 +10,7 @@ import Foundation
 enum Constants {
     
     static let baseUrl = URL(string: "https://pastvu.com/api2?method=")!
+    static let baseImageUrl = URL(string: "https://pastvu.com/_p/d/")!
     
     private static func localizeString(_ key: String) -> String {
         return NSLocalizedString(key, tableName: "ru", bundle: Bundle.main, value: key, comment: key)
