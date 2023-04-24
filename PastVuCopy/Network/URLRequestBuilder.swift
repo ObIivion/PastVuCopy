@@ -24,7 +24,5 @@ class URLRequestBuilder {
         request.httpMethod = "GET"
         
         return request
-        
     }
-    
 }

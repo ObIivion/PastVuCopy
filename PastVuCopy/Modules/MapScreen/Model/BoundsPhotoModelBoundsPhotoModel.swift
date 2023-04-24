@@ -13,7 +13,7 @@ import Foundation
 
 // MARK: - PhotoByBoundsModel
 struct PhotoByBoundsModel: Codable {
-    let result: Result
+    let result: Result?
     let rid: String
 }
 
@@ -21,12 +21,12 @@ struct PhotoByBoundsModel: Codable {
 struct Result: Codable {
     let z: Int
     let photos: [Photo]
-    let clusters: [Cluster]
+    let clusters: [Cluster]?
 }
 
 // MARK: - Cluster
 struct Cluster: Codable {
-    let p: Photo
+    let p: Photo?
     let geo: [Double]
     let c: Int
 }
@@ -37,5 +37,5 @@ struct Photo: Codable {
     let file, title: String
     let geo: [Double]
     let year, year2: Int
-    let dir: String
+    let dir: String?
 }

@@ -30,7 +30,6 @@ class AsyncAwaitApiProvider {
             let (data, response) = try await session.data(for: request)
             guard let httpResponse = (response as? HTTPURLResponse), httpResponse.statusCode == 200 else { throw ApiError.responseError }
             let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .useDefaultKeys
             let photosInfo = try jsonDecoder.decode(PhotoByBoundsModel.self, from: data)
             return photosInfo
         } catch let error as NSError {
