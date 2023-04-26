@@ -237,4 +237,58 @@ class MapView: BaseView {
         
         bottomBluredBar.layer.mask = bottomBarLayer
     }
+    
+    func increaseRegion() {
+        var baseDelta = mapView.region.span.longitudeDelta
+        
+        print("Current zoom: \(mapView.currentZoom)")
+        
+        // должна быть проверка на максимальное приближение (0.0005) и отдаление(180), а то крашится будет
+        // причём от 1 до 180 ускоряется быстрее
+        
+        switch baseDelta {
+        case 0.001...1:
+            baseDelta += 0.0025
+        case 1...180:
+            baseDelta += 3
+        default:
+            break
+        }
+        
+        let newSpan = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta + baseDelta,
+                                       longitudeDelta: mapView.region.span.longitudeDelta + baseDelta)
+        
+        if newSpan.longitudeDelta > 180 || newSpan.latitudeDelta > 180 { return }
+        
+        let increasedRegion = MKCoordinateRegion(center: mapView.region.center, span: newSpan)
+        mapView.setRegion(increasedRegion, animated: true)
+    }
+    
+    func decreaseRegion() {
+        
+        print("Current zoom: \(mapView.currentZoom)")
+        
+        var baseDelta = mapView.region.span.longitudeDelta
+       
+        // должна быть проверка на максимальное приближение (0.0005) и отдаление(180), а то крашится будет
+        // причём от 1 до 180 ускоряется быстрее
+        
+        switch baseDelta {
+        case 0.001...1:
+            baseDelta -= 0.0025
+        case 4...180:
+            baseDelta -= 3
+        default:
+            break
+        }
+        
+        let newSpan = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta - baseDelta,
+                                       longitudeDelta: mapView.region.span.longitudeDelta - baseDelta)
+        
+        if newSpan.longitudeDelta < 0 || newSpan.latitudeDelta < 0 { return }
+        
+        let increasedRegion = MKCoordinateRegion(center: mapView.region.center, span: newSpan)
+        
+        mapView.setRegion(increasedRegion, animated: true)
+    }
 }

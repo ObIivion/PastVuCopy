@@ -22,9 +22,8 @@ final class LocationService: NSObject {
     var userRegion: MKCoordinateRegion? {
         checkLocationAuthStatus()
         guard let userLocation = locationManager.location?.coordinate else { return nil }
-        let userSpan = MKCoordinateSpan(latitudeDelta: 0.0005, longitudeDelta: 0.0005)
+        let userSpan = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0.05)
         let userRegion = MKCoordinateRegion(center: userLocation, span: userSpan)
-        print(userLocation)
         return userRegion
     }
     
@@ -42,7 +41,7 @@ final class LocationService: NSObject {
         case .restricted, .denied, .authorizedWhenInUse, .notDetermined:
             locationManager.requestAlwaysAuthorization()
         @unknown default:
-            break;
+            locationManager.requestAlwaysAuthorization()
         }
     }
 }
@@ -50,7 +49,18 @@ final class LocationService: NSObject {
 extension LocationService: CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        if #available(iOS 14.0, *) {
+            print("available")
+            print(manager.authorizationStatus.rawValue)
+        } else {
+            print("not available")
+            print(CLLocationManager.authorizationStatus().rawValue)
+        }
+        
         checkLocationAuthStatus()
     }
+    
+    
     
 }

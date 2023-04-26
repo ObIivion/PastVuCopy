@@ -9,6 +9,7 @@ target 'PastVuCopy' do
 
 pod 'R.swift'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'Kingfisher', '~> 7.0'
 
 end
 
