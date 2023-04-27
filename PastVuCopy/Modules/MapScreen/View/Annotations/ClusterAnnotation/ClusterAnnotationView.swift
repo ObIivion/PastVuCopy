@@ -25,8 +25,13 @@ class ClusterAnnotationView: MKAnnotationView {
         backgroundColor = UIColor(red: 0.892, green: 0.877, blue: 0.855, alpha: 0.4)
         addSubview(countLabel)
         countLabel.backgroundColor = .gray
+        countLabel.layer.cornerRadius = 17
+        countLabel.layer.masksToBounds = true
         setupConstraints()
-        layer.cornerRadius = 17
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,12 +45,8 @@ class ClusterAnnotationView: MKAnnotationView {
         NSLayoutConstraint.activate([
             countLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             countLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            //countLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: -32),
-            //countLabel.heightAnchor.constraint(equalTo: heightAnchor, constant: -32)
-//            countLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-//            countLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-//            countLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-//            countLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            countLabel.widthAnchor.constraint(equalTo: widthAnchor, constant: 50),
+            countLabel.heightAnchor.constraint(equalTo: heightAnchor, constant: 50)
         ])
     }
     

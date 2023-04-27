@@ -11,8 +11,15 @@ class URLRequestBuilder {
     
     func makeGeoBoundsRequest(polygonCoordinates: [[[Double]]], zoomLevel: UInt) -> URLRequest {
         
+        var queryParams: URLQueryItem
+        
+        if zoomLevel >= 17 {
+            queryParams = URLQueryItem(name: "params", value: "{\"z\":\(zoomLevel),\"geometry\":{\"type\":\"Polygon\",\"coordinates\":\(polygonCoordinates)},\"localWork\":1}".replacingOccurrences(of: " ", with: ""))
+        } else {
+            queryParams = URLQueryItem(name: "params", value: "{\"z\":\(zoomLevel),\"geometry\":{\"type\":\"Polygon\",\"coordinates\":\(polygonCoordinates)}}".replacingOccurrences(of: " ", with: ""))
+        }
+        
         let queryItemMethod = URLQueryItem(name: "method", value: "photo.getByBounds")
-        let queryParams = URLQueryItem(name: "params", value: "{\"z\":\(zoomLevel),\"geometry\":{\"type\":\"Polygon\",\"coordinates\":\(polygonCoordinates)}}".replacingOccurrences(of: " ", with: ""))
         
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
