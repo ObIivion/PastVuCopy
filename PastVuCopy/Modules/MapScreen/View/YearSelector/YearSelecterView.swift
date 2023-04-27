@@ -46,16 +46,27 @@ class YearSelecterView: BaseView {
     private let maskImageView = UIImageView()
     
     override func initSetup() {
+        backgroundColor = .white
         addSubview(label)
         setupConstraints()
-        
         maskImageView.contentMode = .scaleAspectFit
         mask = maskImageView
+        setValue(2020)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         maskImageView.frame = bounds
+        //addBlurEffect()
+    }
+    
+    private func addBlurEffect() {
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = self.bounds
+        
+        blurView.isUserInteractionEnabled = false
+        addSubview(blurView)
     }
     
     func setValue(_ value: Double) {
@@ -68,8 +79,8 @@ class YearSelecterView: BaseView {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -17)
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11)
         ])
     }
 
