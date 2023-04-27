@@ -1,5 +1,5 @@
 //
-//  OnboardingViewModel.swift
+//  OnboardingPresenter.swift
 //  PastVuCopy
 //
 //  Created by Павел Виноградов on 31.03.2023.
@@ -31,7 +31,7 @@ extension OnboardingPresenter: OnboardingOutput {
     }
     
     func onboardingEnded() {
-        UserDefaultsService.shared.setOnboardingViewed(true)
+        UserDefaultsService.shared.isOnboardingViewed = true
         router.openMapScreen()
     }
 }

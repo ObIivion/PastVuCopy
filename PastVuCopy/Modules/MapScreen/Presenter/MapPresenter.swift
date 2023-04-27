@@ -50,8 +50,37 @@ extension MapPresenter: MapOutput {
         
         let photoByBoundsModel = await apiTask.result
         
-        print("PhotoByBoundsModel: @@@@@@@@@")
-        dump(photoByBoundsModel)
+        switch photoByBoundsModel {
+        case let .success(photo):
+            let annotations = makePointAnnotations(model: photo)
+            DispatchQueue.main.async {
+                self.view?.setAnnotations(annotations: annotations)
+            }
+        case .failure(_):
+            break
+        }
         
-    }   
+    }
+    
+    func makePointAnnotations(model: PhotoByBoundsModel) -> [MKPointAnnotation] {
+        
+        var annotations: [MKPointAnnotation] = []
+        
+        model.result?.photos.forEach({
+            let photoUrl = Constants.baseImageUrl.appendingPathComponent($0.file)
+            let photoPointAnnotation = PhotoPointAnnotation(id: $0.cid, photoUrl: photoUrl)
+            photoPointAnnotation.coordinate = CLLocationCoordinate2D(latitude: $0.geo[0], longitude: $0.geo[1])
+            annotations.append(photoPointAnnotation)
+        })
+        
+        model.result?.clusters?.forEach({
+            if let photo = $0.p {
+                let clusterPointAnnotation = ClusterPointAnnotation(id: photo.cid, count: $0.c)
+                clusterPointAnnotation.coordinate = CLLocationCoordinate2D(latitude: $0.geo[0], longitude: $0.geo[1])
+                annotations.append(clusterPointAnnotation)
+            }
+        })
+        
+        return annotations
+    }
 }

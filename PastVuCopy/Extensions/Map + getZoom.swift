@@ -12,7 +12,7 @@ import UIKit
 extension MKMapView {
     
     var currentZoom: UInt {
-        return UInt(log2(360 * ((Double(frame.size.width) / 256) / self.region.span.longitudeDelta)) + 1);
+        return UInt(log2(360 * ((Double(frame.size.width) / 256) / self.region.span.longitudeDelta)));
     }
     
     func zoomOut() {

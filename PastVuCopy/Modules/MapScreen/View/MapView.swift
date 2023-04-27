@@ -48,6 +48,8 @@ class MapView: BaseView {
     }()
     
     private let yearsGradientView = UIView()
+    private let topYearSelector = YearSelecterView()
+    private let botYearSelector = YearSelecterView()
     
     let cameraButton: BigCircleBluredButton = {
         let button = BigCircleBluredButton()
@@ -81,17 +83,25 @@ class MapView: BaseView {
     
     override func initSetup() {
         addSubview(mapView)
+        
         addSubview(plusButton)
         addSubview(minusButton)
+        
         addSubview(profileButton)
         addSubview(favouritesButton)
         addSubview(compassButton)
+        
         addSubview(yearsGradientView)
+        addSubview(botYearSelector)
+        addSubview(topYearSelector)
+        
         addSubview(bottomBluredBar)
         addSubview(cameraButton)
-        
         addSubview(leftBarButton)
         addSubview(rightBarButton)
+        
+        botYearSelector.mode = .bot
+        topYearSelector.mode = .top
         
         setupConstraints()
     }
@@ -149,6 +159,22 @@ class MapView: BaseView {
             yearsGradientView.topAnchor.constraint(equalTo: favouritesButton.bottomAnchor, constant: 61),
             yearsGradientView.bottomAnchor.constraint(equalTo: bottomBluredBar.topAnchor, constant: -82),
             yearsGradientView.widthAnchor.constraint(equalToConstant: 10),
+        ])
+        
+        topYearSelector.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topYearSelector.trailingAnchor.constraint(equalTo: yearsGradientView.leadingAnchor),
+            topYearSelector.bottomAnchor.constraint(equalTo: yearsGradientView.topAnchor),
+            topYearSelector.widthAnchor.constraint(equalToConstant: 54),
+            topYearSelector.heightAnchor.constraint(equalToConstant: 48)
+        ])
+        
+        botYearSelector.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            botYearSelector.trailingAnchor.constraint(equalTo: yearsGradientView.leadingAnchor),
+            botYearSelector.topAnchor.constraint(equalTo: yearsGradientView.bottomAnchor),
+            botYearSelector.widthAnchor.constraint(equalToConstant: 54),
+            botYearSelector.heightAnchor.constraint(equalToConstant: 48)
         ])
         
         cameraButton.translatesAutoresizingMaskIntoConstraints = false

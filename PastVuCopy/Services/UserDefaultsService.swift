@@ -14,10 +14,12 @@ final class UserDefaultsService {
     private let userDefaults = UserDefaults.standard
     
     var isOnboardingViewed: Bool {
-        userDefaults.bool(forKey: "isOnboardingViewed")
-    }
-    
-    func setOnboardingViewed(_ isViewed: Bool) {
-        userDefaults.set(isViewed, forKey: "isOnboardingViewed")
+        get {
+            userDefaults.bool(forKey: "isOnboardingViewed")
+        }
+        set {
+            userDefaults.set(newValue, forKey: "isOnboardingViewed")
+        }
+        
     }
 }
