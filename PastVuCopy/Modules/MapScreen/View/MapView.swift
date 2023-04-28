@@ -47,9 +47,9 @@ class MapView: BaseView {
         return button
     }()
     
-    private let yearsGradientView = UIView()
-    private let topYearSelector = YearSelecterView()
-    private let botYearSelector = YearSelecterView()
+//    private let yearsGradientView = UIView()
+//    private let topYearSelector = YearSelectorView()
+//    private let botYearSelector = YearSelectorView()
     
     let cameraButton: BigCircleBluredButton = {
         let button = BigCircleBluredButton()
@@ -81,6 +81,8 @@ class MapView: BaseView {
         return button
     }()
     
+    let yearSelector = YearSelectorControl()
+    
     override func initSetup() {
         addSubview(mapView)
         
@@ -91,17 +93,18 @@ class MapView: BaseView {
         addSubview(favouritesButton)
         addSubview(compassButton)
         
-        addSubview(yearsGradientView)
-        addSubview(botYearSelector)
-        addSubview(topYearSelector)
+        addSubview(yearSelector)
+//        addSubview(yearsGradientView)
+//        addSubview(botYearSelector)
+//        addSubview(topYearSelector)
         
         addSubview(bottomBluredBar)
         addSubview(cameraButton)
         addSubview(leftBarButton)
         addSubview(rightBarButton)
         
-        botYearSelector.mode = .bot
-        topYearSelector.mode = .top
+//        botYearSelector.mode = .bot
+//        topYearSelector.mode = .top
         
         setupConstraints()
     }
@@ -153,29 +156,37 @@ class MapView: BaseView {
             compassButton.bottomAnchor.constraint(equalTo: bottomBluredBar.topAnchor, constant: -36)
         ])
         
-        yearsGradientView.translatesAutoresizingMaskIntoConstraints = false
+        yearSelector.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            yearsGradientView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            yearsGradientView.topAnchor.constraint(equalTo: favouritesButton.bottomAnchor, constant: 61),
-            yearsGradientView.bottomAnchor.constraint(equalTo: bottomBluredBar.topAnchor, constant: -82),
-            yearsGradientView.widthAnchor.constraint(equalToConstant: 10),
+            yearSelector.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            yearSelector.centerYAnchor.constraint(equalTo: centerYAnchor)
+//            yearSelector.topAnchor.constraint(equalTo: favouritesButton.bottomAnchor, constant: 61),
+//            yearSelector.bottomAnchor.constraint(equalTo: bottomBluredBar.topAnchor, constant: -82)
         ])
         
-        topYearSelector.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            topYearSelector.trailingAnchor.constraint(equalTo: yearsGradientView.leadingAnchor),
-            topYearSelector.bottomAnchor.constraint(equalTo: yearsGradientView.topAnchor),
-            topYearSelector.widthAnchor.constraint(equalToConstant: 54),
-            topYearSelector.heightAnchor.constraint(equalToConstant: 48)
-        ])
-        
-        botYearSelector.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            botYearSelector.trailingAnchor.constraint(equalTo: yearsGradientView.leadingAnchor),
-            botYearSelector.topAnchor.constraint(equalTo: yearsGradientView.bottomAnchor),
-            botYearSelector.widthAnchor.constraint(equalToConstant: 54),
-            botYearSelector.heightAnchor.constraint(equalToConstant: 48)
-        ])
+//        yearsGradientView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            yearsGradientView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+//            yearsGradientView.topAnchor.constraint(equalTo: favouritesButton.bottomAnchor, constant: 61),
+//            yearsGradientView.bottomAnchor.constraint(equalTo: bottomBluredBar.topAnchor, constant: -82),
+//            yearsGradientView.widthAnchor.constraint(equalToConstant: 10),
+//        ])
+//
+//        topYearSelector.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            topYearSelector.trailingAnchor.constraint(equalTo: yearsGradientView.leadingAnchor),
+//            topYearSelector.bottomAnchor.constraint(equalTo: yearsGradientView.topAnchor),
+//            topYearSelector.widthAnchor.constraint(equalToConstant: 54),
+//            topYearSelector.heightAnchor.constraint(equalToConstant: 48)
+//        ])
+//
+//        botYearSelector.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            botYearSelector.trailingAnchor.constraint(equalTo: yearsGradientView.leadingAnchor),
+//            botYearSelector.topAnchor.constraint(equalTo: yearsGradientView.bottomAnchor),
+//            botYearSelector.widthAnchor.constraint(equalToConstant: 54),
+//            botYearSelector.heightAnchor.constraint(equalToConstant: 48)
+//        ])
         
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -208,26 +219,26 @@ class MapView: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         cameraButton.layer.cornerRadius = cameraButton.bounds.width / 2
-        yearsGradientView.layer.cornerRadius = 5
+        //yearsGradientView.layer.cornerRadius = 5
         drawBluredBar()
-        drawGradientView()
+        //drawGradientView()
     }
     
-    private func drawGradientView() {
-        let gradientLayer = CAGradientLayer()
-        
-        gradientLayer.colors = [
-            UIColor(red: 0.725, green: 0.833, blue: 0.476, alpha: 1).cgColor,
-            UIColor(red: 1, green: 0.8, blue: 0.092, alpha: 1).cgColor,
-            UIColor(red: 1, green: 0.459, blue: 0.229, alpha: 1).cgColor,
-            UIColor(red: 0.941, green: 0.314, blue: 0.325, alpha: 1).cgColor,
-        ]
-        
-        gradientLayer.locations = [0, 0.34, 0.66, 1]
-        gradientLayer.frame = yearsGradientView.bounds
-        gradientLayer.cornerRadius = 5
-        yearsGradientView.layer.addSublayer(gradientLayer)
-    }
+//    private func drawGradientView() {
+//        let gradientLayer = CAGradientLayer()
+//
+//        gradientLayer.colors = [
+//            UIColor(red: 0.725, green: 0.833, blue: 0.476, alpha: 1).cgColor,
+//            UIColor(red: 1, green: 0.8, blue: 0.092, alpha: 1).cgColor,
+//            UIColor(red: 1, green: 0.459, blue: 0.229, alpha: 1).cgColor,
+//            UIColor(red: 0.941, green: 0.314, blue: 0.325, alpha: 1).cgColor,
+//        ]
+//
+//        gradientLayer.locations = [0, 0.34, 0.66, 1]
+//        gradientLayer.frame = yearsGradientView.bounds
+//        gradientLayer.cornerRadius = 5
+//        yearsGradientView.layer.addSublayer(gradientLayer)
+//    }
     
     private func drawBluredBar() {
         
@@ -262,59 +273,5 @@ class MapView: BaseView {
         bottomBarLayer.fillRule = .evenOdd
         
         bottomBluredBar.layer.mask = bottomBarLayer
-    }
-    
-    func increaseRegion() {
-        var baseDelta = mapView.region.span.longitudeDelta
-        
-        print("Current zoom: \(mapView.currentZoom)")
-        
-        // должна быть проверка на максимальное приближение (0.0005) и отдаление(180), а то крашится будет
-        // причём от 1 до 180 ускоряется быстрее
-        
-        switch baseDelta {
-        case 0.001...1:
-            baseDelta += 0.0025
-        case 1...180:
-            baseDelta += 3
-        default:
-            break
-        }
-        
-        let newSpan = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta + baseDelta,
-                                       longitudeDelta: mapView.region.span.longitudeDelta + baseDelta)
-        
-        if newSpan.longitudeDelta > 180 || newSpan.latitudeDelta > 180 { return }
-        
-        let increasedRegion = MKCoordinateRegion(center: mapView.region.center, span: newSpan)
-        mapView.setRegion(increasedRegion, animated: true)
-    }
-    
-    func decreaseRegion() {
-        
-        print("Current zoom: \(mapView.currentZoom)")
-        
-        var baseDelta = mapView.region.span.longitudeDelta
-       
-        // должна быть проверка на максимальное приближение (0.0005) и отдаление(180), а то крашится будет
-        // причём от 1 до 180 ускоряется быстрее
-        
-        switch baseDelta {
-        case 0.001...1:
-            baseDelta -= 0.0025
-        case 4...180:
-            baseDelta -= 3
-        default:
-            break
-        }
-        
-        let newSpan = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta - baseDelta,
-                                       longitudeDelta: mapView.region.span.longitudeDelta - baseDelta)
-        
-        if newSpan.longitudeDelta < 0 || newSpan.latitudeDelta < 0 { return }
-        
-        let increasedRegion = MKCoordinateRegion(center: mapView.region.center, span: newSpan)
-        
-        mapView.setRegion(increasedRegion, animated: true)
     }
 }

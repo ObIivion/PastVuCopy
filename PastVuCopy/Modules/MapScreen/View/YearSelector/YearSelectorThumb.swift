@@ -7,7 +7,7 @@
 
 import UIKit
 
-class YearSelecterView: BaseView {
+class YearSelectorThumb: BaseView {
     
     enum Mode {
         case top

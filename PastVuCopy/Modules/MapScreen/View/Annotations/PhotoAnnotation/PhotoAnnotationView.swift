@@ -23,13 +23,6 @@ class PhotoAnnotationView: MKAnnotationView {
         
     }
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        
-//        imageView.layer.cornerRadius = 22
-//        
-//    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         awakeFromNib()
@@ -41,8 +34,8 @@ class PhotoAnnotationView: MKAnnotationView {
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 50),
-            imageView.heightAnchor.constraint(equalToConstant: 50)
+            imageView.widthAnchor.constraint(equalToConstant: 60),
+            imageView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     

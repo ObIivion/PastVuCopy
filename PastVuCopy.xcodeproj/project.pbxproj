@@ -11,8 +11,11 @@
 		A3047C4829F968C3002F8A27 /* ClusterPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3047C4729F968C3002F8A27 /* ClusterPointAnnotation.swift */; };
 		A3047C4A29F9694A002F8A27 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3047C4929F9694A002F8A27 /* ClusterAnnotationView.swift */; };
 		A3047C4C29F96D98002F8A27 /* PhotoAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3047C4B29F96D98002F8A27 /* PhotoAnnotationView.swift */; };
-		A3047C4F29F9781A002F8A27 /* YearSelecterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3047C4E29F9781A002F8A27 /* YearSelecterView.swift */; };
+		A3047C4F29F9781A002F8A27 /* YearSelectorThumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3047C4E29F9781A002F8A27 /* YearSelectorThumb.swift */; };
 		A3047C5129F988F9002F8A27 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3047C5029F988F9002F8A27 /* String.swift */; };
+		A3047C5329FBDDAE002F8A27 /* MapFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3047C5229FBDDAE002F8A27 /* MapFilter.swift */; };
+		A3047C5529FBDF76002F8A27 /* MKAnnotationView + id.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3047C5429FBDF76002F8A27 /* MKAnnotationView + id.swift */; };
+		A3047C5729FBFD93002F8A27 /* YearSelectorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3047C5629FBFD93002F8A27 /* YearSelectorControl.swift */; };
 		A3066F5C29F1C29C0046375E /* BoundsPhotoModelBoundsPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3066F5B29F1C29C0046375E /* BoundsPhotoModelBoundsPhotoModel.swift */; };
 		A3066F5E29F1DE940046375E /* StructuredApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3066F5D29F1DE940046375E /* StructuredApiProvider.swift */; };
 		A3066F6029F1E4BE0046375E /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3066F5F29F1E4BE0046375E /* URLRequestBuilder.swift */; };
@@ -75,8 +78,11 @@
 		A3047C4729F968C3002F8A27 /* ClusterPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterPointAnnotation.swift; sourceTree = "<group>"; };
 		A3047C4929F9694A002F8A27 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		A3047C4B29F96D98002F8A27 /* PhotoAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAnnotationView.swift; sourceTree = "<group>"; };
-		A3047C4E29F9781A002F8A27 /* YearSelecterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSelecterView.swift; sourceTree = "<group>"; };
+		A3047C4E29F9781A002F8A27 /* YearSelectorThumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSelectorThumb.swift; sourceTree = "<group>"; };
 		A3047C5029F988F9002F8A27 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A3047C5229FBDDAE002F8A27 /* MapFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilter.swift; sourceTree = "<group>"; };
+		A3047C5429FBDF76002F8A27 /* MKAnnotationView + id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKAnnotationView + id.swift"; sourceTree = "<group>"; };
+		A3047C5629FBFD93002F8A27 /* YearSelectorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearSelectorControl.swift; sourceTree = "<group>"; };
 		A3066F5B29F1C29C0046375E /* BoundsPhotoModelBoundsPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundsPhotoModelBoundsPhotoModel.swift; sourceTree = "<group>"; };
 		A3066F5D29F1DE940046375E /* StructuredApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuredApiProvider.swift; sourceTree = "<group>"; };
 		A3066F5F29F1E4BE0046375E /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
@@ -187,7 +193,8 @@
 		A3047C4D29F977EC002F8A27 /* YearSelector */ = {
 			isa = PBXGroup;
 			children = (
-				A3047C4E29F9781A002F8A27 /* YearSelecterView.swift */,
+				A3047C4E29F9781A002F8A27 /* YearSelectorThumb.swift */,
+				A3047C5629FBFD93002F8A27 /* YearSelectorControl.swift */,
 			);
 			path = YearSelector;
 			sourceTree = "<group>";
@@ -229,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				A3899FA929E5597900A1E680 /* MapPresenter.swift */,
+				A3047C5229FBDDAE002F8A27 /* MapFilter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 			children = (
 				A3CE00B929EEC18C0040C535 /* Map + getZoom.swift */,
 				A3047C5029F988F9002F8A27 /* String.swift */,
+				A3047C5429FBDF76002F8A27 /* MKAnnotationView + id.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -614,23 +623,26 @@
 				A3CE620729D740490020C95A /* OnboardingViewModel.swift in Sources */,
 				A30918C429E98A120053F576 /* MapService.swift in Sources */,
 				A3D7B3B829D6301E00F0D3DB /* BaseViewController.swift in Sources */,
+				A3047C5729FBFD93002F8A27 /* YearSelectorControl.swift in Sources */,
 				A30918C229E976C40053F576 /* LocationService.swift in Sources */,
 				A3CE00BA29EEC18C0040C535 /* Map + getZoom.swift in Sources */,
 				A3047C4A29F9694A002F8A27 /* ClusterAnnotationView.swift in Sources */,
 				A3CE61F329D7044A0020C95A /* OnePageViewController.swift in Sources */,
 				A3899FD429E5669400A1E680 /* BluredButton.swift in Sources */,
 				A3899FD129E560CD00A1E680 /* R.generated.swift in Sources */,
-				A3047C4F29F9781A002F8A27 /* YearSelecterView.swift in Sources */,
+				A3047C4F29F9781A002F8A27 /* YearSelectorThumb.swift in Sources */,
 				A3899FA229E45A9400A1E680 /* MapView.swift in Sources */,
 				A3D7B3BF29D63FBD00F0D3DB /* OnboardingModel.swift in Sources */,
 				A3899FD629E5757100A1E680 /* MapViewController.swift in Sources */,
 				A3D7B3BB29D6333C00F0D3DB /* UserDefaultsService.swift in Sources */,
 				A30CE97A29E7172E0049F1BA /* MapScreenRouter.swift in Sources */,
+				A3047C5529FBDF76002F8A27 /* MKAnnotationView + id.swift in Sources */,
 				A30918C029E976580053F576 /* ApiProvider.swift in Sources */,
 				A3CE61EF29D6F4330020C95A /* Constants.swift in Sources */,
 				A3047C4829F968C3002F8A27 /* ClusterPointAnnotation.swift in Sources */,
 				A3047C4C29F96D98002F8A27 /* PhotoAnnotationView.swift in Sources */,
 				A3899FAA29E5597900A1E680 /* MapPresenter.swift in Sources */,
+				A3047C5329FBDDAE002F8A27 /* MapFilter.swift in Sources */,
 				A3CE61F529D7047B0020C95A /* OnboardingPageView.swift in Sources */,
 				A3066F5C29F1C29C0046375E /* BoundsPhotoModelBoundsPhotoModel.swift in Sources */,
 				A3D7B39C29D62CA000F0D3DB /* OnboardingPagesVC.swift in Sources */,

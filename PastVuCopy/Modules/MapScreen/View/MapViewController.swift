@@ -20,6 +20,7 @@ class MapViewController: BaseViewController<MapView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
         mainView.plusButton.addTarget(self, action: #selector(plusButtonPressed(_:)), for: .touchUpInside)
         mainView.minusButton.addTarget(self, action: #selector(minusButtonPressed(_:)), for: .touchUpInside)
         mainView.favouritesButton.addTarget(self, action: #selector(plusButtonPressed(_:)), for: .touchUpInside)
@@ -27,31 +28,31 @@ class MapViewController: BaseViewController<MapView> {
         mainView.cameraButton.addTarget(self, action: #selector(cameraButtonPressed(_:)), for: .touchUpInside)
         
         mainView.mapView.delegate = self
-        mainView.mapView.register(PhotoAnnotationView.self, forAnnotationViewWithReuseIdentifier: "Photo")
-        mainView.mapView.register(ClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: "Cluster")
+        mainView.mapView.register(PhotoAnnotationView.self, forAnnotationViewWithReuseIdentifier: PhotoAnnotationView.identifier)
+        mainView.mapView.register(ClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: ClusterAnnotationView.identifier)
         
         presenter.getUserRegion()
     }
     
-    @objc func plusButtonPressed(_ sender: UIButton) {
+    @objc private func plusButtonPressed(_ sender: UIButton) {
         mainView.mapView.zoomIn()
     }
     
-    @objc func minusButtonPressed(_ sender: UIButton) {
+    @objc private func minusButtonPressed(_ sender: UIButton) {
         mainView.mapView.zoomOut()
     }
     
-    @objc func cameraButtonPressed(_ sender: UIButton) {
+    @objc private func cameraButtonPressed(_ sender: UIButton) {
         //  TODO
         
     }
     
-    @objc func favouritesButtonPressed(_ sender: UIButton) {
+    @objc private func favouritesButtonPressed(_ sender: UIButton) {
         
         
     }
     
-    @objc func compassButtonPressed(_ sender: UIButton) {
+    @objc private func compassButtonPressed(_ sender: UIButton) {
         presenter.getUserRegion()
     }
     
@@ -67,8 +68,6 @@ extension MapViewController: MapViewInput {
         let allAnnotations = mainView.mapView.annotations
         mainView.mapView.removeAnnotations(allAnnotations)
         mainView.mapView.addAnnotations(annotations)
-        
-        //print(#function, mainView.mapView.annotations)
     }
 }
 
@@ -95,19 +94,27 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        print(#function, annotation)
-        
         if let photoAnnotation = (annotation as? PhotoPointAnnotation) {
-            let photoAnnotationView = mainView.mapView.dequeueReusableAnnotationView(withIdentifier: "Photo", for: photoAnnotation) as! PhotoAnnotationView
+            let photoAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: PhotoAnnotationView.identifier, for: photoAnnotation) as! PhotoAnnotationView
             photoAnnotationView.setPhoto(url: photoAnnotation.photoUrl)
             return photoAnnotationView
         }
         
         if let clusterAnnotaion = (annotation as? ClusterPointAnnotation) {
-            let clusterAnnotationView = mainView.mapView.dequeueReusableAnnotationView(withIdentifier: "Cluster", for: clusterAnnotaion) as! ClusterAnnotationView
+            let clusterAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: ClusterAnnotationView.identifier, for: clusterAnnotaion) as! ClusterAnnotationView
             clusterAnnotationView.setCount(clusterAnnotaion.count)
             return clusterAnnotationView
         }
         return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        if let photo = (view.annotation as? PhotoPointAnnotation) {
+            let photoCoordinate = photo.coordinate
+            let currentSpan = mapView.region.span
+            let photoRegion = MKCoordinateRegion(center: photoCoordinate, span: currentSpan)
+            mapView.setRegion(photoRegion, animated: true)
+        }
     }
 }
